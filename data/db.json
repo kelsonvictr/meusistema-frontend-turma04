@@ -1,5 +1,23 @@
 {
-    "fornecedores": [],
-    "produtos": [],
-    "clientes": []
+  "fornecedores": [
+    {
+      "id": "3eff",
+      "nome": "Empresa LTDA",
+      "email": "empresa@gmail.com",
+      "cnpj": "22137014000194",
+      "tipoFornecedor": "COMUM",
+      "endereco": {
+        "cep": "58052492",
+        "logradouro": "Rua Francisca Dantas Souza",
+        "numero": "777",
+        "complemento": "CASA",
+        "bairro": "Jardim Cidade Universitária",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
+    }
+  ],
+  "produtos": [],
+  "clientes": []
 }
