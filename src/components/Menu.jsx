@@ -1,12 +1,13 @@
 import React from 'react'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { FaSignOutAlt, FaUserCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Menu = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top" className="shadow">
         <Container>
-            <Navbar.Brand className="fw-bold">
+            <Navbar.Brand as={Link} to="/" className="fw-bold">
                 MeuSistema
             </Navbar.Brand>
 
@@ -15,9 +16,9 @@ const Menu = () => {
             <Navbar.Collapse id="menu-principal">
 
                 <Nav className="me-auto">
-                    <Nav.Link>Produtos</Nav.Link>
-                    <Nav.Link>Clientes</Nav.Link>
-                    <Nav.Link>Fornecedores</Nav.Link>
+                    <Nav.Link as={Link} to="/listar-produtos">Produtos</Nav.Link>
+                    <Nav.Link as={Link} to="/listar-clientes">Clientes</Nav.Link>
+                    <Nav.Link as={Link} to="/listar-fornecedores">Fornecedores</Nav.Link>
                 </Nav>
 
                 <Nav>
