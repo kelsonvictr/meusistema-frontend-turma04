@@ -1,9 +1,22 @@
-import React from 'react'
-import { Button, Container, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { FaPlus, FaQuestionCircle } from 'react-icons/fa'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Button, Container, OverlayTrigger, Table, Tooltip } from 'react-bootstrap'
+import { FaEdit, FaPlus, FaQuestionCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const FornecedorList = () => {
+
+  const apiUrl = import.meta.env.VITE_API_URL
+  const [fornecedores, setFornecedores] = useState([])
+
+  useEffect(() => {
+    axios.get(`${apiUrl}/fornecedores`)
+    .then(response => {
+      setFornecedores(response.data)
+    })
+    .catch(error => console.error("Erro ao carregar fornecedores: ", error))
+  }, [])
+
   return (
     <Container className="mt-5">
       <h2 className="mb-4 d-flex align-items-center">
@@ -23,6 +36,40 @@ const FornecedorList = () => {
             <FaPlus className="me-2" /> Adicionar Fornecedor
         </Button>
       </div>
+
+      <Table striped bordered hover responsive>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CNPJ</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            fornecedores.map(fornecedor => (
+                <tr key={fornecedor.id}>
+                  <td>{fornecedor.nome}</td>
+                  <td>{fornecedor.cnpj}</td>
+                  <td>{fornecedor.tipoFornecedor}</td>
+                  <td>
+
+                    <Button
+                      variant="warning"
+                      size="sm"
+                      className="me-se"
+                    >
+
+                      <FaEdit className="me-1" /> Editar
+                    </Button>
+
+                  </td>
+                </tr>     
+            ))
+          }
+        </tbody>
+      </Table>
 
     </Container>
   )
