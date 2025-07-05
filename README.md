@@ -19,3 +19,20 @@ npm install react-router-dom axios json-server react-bootstrap bootstrap react-i
 ```js
 import 'bootstrap/dist/css/bootstrap.min.css' 
 ```
+
+### Configuração do JSON-SERVER:
+
+- No package.json, insira um script novo:
+```json
+"server": "json-server --watch data/db.json
+```
+- Crie um pasta e arquivo: data/db.json (NA RAIZ)
+- Dentro dele inicialize as tabelas do banco de dados:
+
+```json
+{
+    "fornecedores": [],
+    "produtos": [],
+    "clientes": []
+}
+```

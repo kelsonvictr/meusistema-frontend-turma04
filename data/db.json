@@ -16,6 +16,74 @@
         "estado": "Paraíba",
         "pais": "Brasil"
       }
+    },
+    {
+      "id": "3663",
+      "nome": "Kelson Almeida 2222",
+      "email": "kelson.victr@gmail.com",
+      "cnpj": "1231231231222",
+      "tipoFornecedor": "COMUM",
+      "endereco": {
+        "cep": "58037328",
+        "logradouro": "Rua Josefa de Miranda Freire",
+        "numero": "105",
+        "complemento": "22",
+        "bairro": "Jardim Oceania",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "4a04",
+      "nome": "Kelson Almeida 2222",
+      "email": "kelson.victr@gmail.com",
+      "cnpj": "1231231231222",
+      "tipoFornecedor": "COMUM",
+      "endereco": {
+        "cep": "58037328",
+        "logradouro": "Rua Josefa de Miranda Freire",
+        "numero": "105",
+        "complemento": "22",
+        "bairro": "Jardim Oceania",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "7045",
+      "nome": "Fernandes de Almeida",
+      "email": "erica.renallyf@gmail.com",
+      "cnpj": "23232323232",
+      "tipoFornecedor": "PREMIUM",
+      "endereco": {
+        "cep": "58037328",
+        "logradouro": "Rua Josefa de Miranda Freire",
+        "numero": "105",
+        "complemento": "444",
+        "bairro": "Jardim Oceania",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
+    },
+    {
+      "id": "2f1a",
+      "nome": "reerreerer",
+      "email": "kelson.victr@gmail.com",
+      "cnpj": "",
+      "tipoFornecedor": "COMUM",
+      "endereco": {
+        "cep": "58079000",
+        "logradouro": "Rua Deputado Francisco Seráphico da Nóbrega Filho",
+        "numero": "383",
+        "complemento": "322332",
+        "bairro": "Funcionários",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
     }
   ],
   "produtos": [],

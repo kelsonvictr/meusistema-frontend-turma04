@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react'
-import { Container, Form, OverlayTrigger, Tooltip, Row, Col, Button } from 'react-bootstrap'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { Container, Form, OverlayTrigger, Tooltip, Row, Col, Button, Modal } from 'react-bootstrap'
+import { FaQuestionCircle, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
 import { useState } from 'react'
 import axios from 'axios'
 
 const FornecedorForm = () => {
+
+    const apiUrl = import.meta.env.VITE_API_URL
+    const [modalAberto, setModalAberto] = useState(false)
+    const [modalErroAberto, setModalErroAberto] = useState(false)
 
     const [fornecedor, setFornecedor] = useState({
         nome: "",
@@ -57,8 +61,11 @@ const FornecedorForm = () => {
             cnpj: fornecedor.cnpj.replace(/[^\d]/g, '')
         }
 
-        axios.post('http://localhost:3000/fornecedores', fornecedorData)
-        .then(reponse => console.log("Fornecedor cadastrado com sucesso"))
+        axios.post(`${apiUrl}/fornecedores`, fornecedorData)
+        .then(response => {
+            console.log("Fornecedor cadastrado com sucesso")
+            setModalAberto(true)
+        } )
         .catch(error => console.error("Erro ao cadastrar fornecedor: ", error))
     }
 
@@ -230,6 +237,29 @@ const FornecedorForm = () => {
                 </Button>
 
         </Form>
+
+        {/* Modal de sucesso */}
+      <Modal show={modalAberto} onHide={() => { setModalAberto(false); navigate('/listar-fornecedores') }} centered>
+        <Modal.Header closeButton><Modal.Title><FaCheckCircle className="text-success me-2" /> Sucesso</Modal.Title></Modal.Header>
+        <Modal.Body>
+          Fornecedor adicionado com sucesso!
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="success" onClick={() => navigate('/listar-fornecedores')}>Fechar</Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* Modal de erro com mensagens */}
+      <Modal show={modalErroAberto} onHide={() => setModalErroAberto(false)} centered>
+        <Modal.Header closeButton><Modal.Title>Erro</Modal.Title></Modal.Header>
+        <Modal.Body>
+          <FaExclamationTriangle className="text-danger me-2" />
+          Houve um erro ao cadastrar o fornecedor.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setModalErroAberto(false)}>Fechar</Button>
+        </Modal.Footer>
+      </Modal>
 
     </Container>
   )
