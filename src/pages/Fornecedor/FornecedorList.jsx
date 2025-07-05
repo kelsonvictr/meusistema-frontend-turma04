@@ -1,6 +1,7 @@
 import React from 'react'
-import { Container, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { Button, Container, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import { FaPlus, FaQuestionCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const FornecedorList = () => {
   return (
@@ -16,6 +17,12 @@ const FornecedorList = () => {
                 </span>
             </OverlayTrigger>
       </h2>
+
+      <div className="mb-3">
+        <Button as={Link} to="/cadastrar-fornecedor" variant="primary">
+            <FaPlus className="me-2" /> Adicionar Fornecedor
+        </Button>
+      </div>
 
     </Container>
   )
