@@ -3,6 +3,7 @@ import FornecedorForm from './pages/Fornecedor/FornecedorForm'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Inicial from './pages/Inicial'
 import Menu from './components/Menu'
+import FornecedorList from './pages/Fornecedor/FornecedorList'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Inicial />} />
         <Route path="/cadastrar-fornecedor" element={<FornecedorForm />} />
+        <Route path="/listar-fornecedores" element={<FornecedorList />} />
       </Routes>
     </BrowserRouter>
   )
