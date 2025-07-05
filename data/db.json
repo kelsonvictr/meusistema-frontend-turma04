@@ -16,6 +16,23 @@
         "estado": "Paraíba",
         "pais": "Brasil"
       }
+    },
+    {
+      "id": "623c",
+      "nome": "Fornecedor 123 LTDA",
+      "email": "kelson22@gmail.com",
+      "cnpj": "212313233132231312",
+      "tipoFornecedor": "COMUM",
+      "endereco": {
+        "cep": "58037-328",
+        "logradouro": "Rua Josefa de Miranda Freire",
+        "numero": "105",
+        "complemento": "CASA",
+        "bairro": "Jardim Oceania",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
     }
   ],
   "produtos": [],

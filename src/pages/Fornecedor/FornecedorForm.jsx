@@ -1,10 +1,16 @@
 import React, { useEffect } from 'react'
-import { Container, Form, OverlayTrigger, Tooltip, Row, Col, Button } from 'react-bootstrap'
-import { FaQuestionCircle } from 'react-icons/fa'
+import { Container, Form, OverlayTrigger, Tooltip, Row, Col, Button, Modal } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { FaCheckCircle, FaQuestionCircle } from 'react-icons/fa'
 import { useState } from 'react'
 import axios from 'axios'
 
 const FornecedorForm = () => {
+
+    const navigate = useNavigate()
+    const apiUrl = import.meta.env.VITE_API_URL
+
+    const [modalAberto, setModalAberto] = useState(false)
 
     const [fornecedor, setFornecedor] = useState({
         nome: "",
@@ -57,8 +63,11 @@ const FornecedorForm = () => {
             cnpj: fornecedor.cnpj.replace(/[^\d]/g, '')
         }
 
-        axios.post('http://localhost:3000/fornecedores', fornecedorData)
-        .then(reponse => console.log("Fornecedor cadastrado com sucesso"))
+        axios.post(`${apiUrl}/fornecedores`, fornecedorData)
+        .then(response => {
+            console.log("Fornecedor cadastro com sucesso: ", response)
+            setModalAberto(true)
+        })
         .catch(error => console.error("Erro ao cadastrar fornecedor: ", error))
     }
 
@@ -230,6 +239,25 @@ const FornecedorForm = () => {
                 </Button>
 
         </Form>
+
+        {/* Modal de Sucesso */}
+
+        <Modal show={modalAberto} onHide={() => { setModalAberto(false); navigate('/listar-fornecedores') }}>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                   <FaCheckCircle className="text-success me-2" /> Sucesso:
+                </Modal.Title>
+                <Modal.Body>
+                    Fornecedor adicionado com sucesso!
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="success" onClick={() => navigate( '/listar-fornecedores')}>Fechar</Button>
+                </Modal.Footer>
+            </Modal.Header>
+
+        </Modal>
+
+
 
     </Container>
   )
