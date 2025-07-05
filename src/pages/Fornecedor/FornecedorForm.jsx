@@ -247,13 +247,14 @@ const FornecedorForm = () => {
                 <Modal.Title>
                    <FaCheckCircle className="text-success me-2" /> Sucesso:
                 </Modal.Title>
-                <Modal.Body>
-                    Fornecedor adicionado com sucesso!
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="success" onClick={() => navigate( '/listar-fornecedores')}>Fechar</Button>
-                </Modal.Footer>
             </Modal.Header>
+            <Modal.Body>
+                Fornecedor adicionado com sucesso!
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="success" onClick={() => navigate( '/listar-fornecedores')}>Fechar</Button>
+            </Modal.Footer>
+            
 
         </Modal>
 
