@@ -38,10 +38,11 @@
   "produtos": [],
   "clientes": [
     {
-      "id": "14e8",
-      "nome": "Cliente Teste 1",
+      "id": "6565",
+      "nome": "Cliente Teste 3",
       "email": "kelson.victr@gmail.com",
-      "telefone": "4443343434",
+      "cpf": "32232323",
+      "telefone": "322232323",
       "endereco": {
         "cep": "58037-328",
         "logradouro": "Rua Josefa de Miranda Freire",

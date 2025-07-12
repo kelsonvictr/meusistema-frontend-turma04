@@ -16,9 +16,11 @@ const ClienteForm = () => {
 
     const apiUrl = import.meta.env.VITE_API_URL
 
+
     const [cliente, setCliente] = useState({
         nome: "",
         email: "",
+        cpf: "",
         telefone: "",
         endereco: {
             cep: "",
@@ -43,6 +45,15 @@ const ClienteForm = () => {
         // Tem que estar pronto para mudar também o endereço completo
         handleEndereco('cep', e.target.value )
     }
+
+    // useEffect para carregar as informacoes para editar
+    useEffect(() => {
+        if (id) {
+            axios.get(`${apiUrl}/clientes/${id}`)
+            .then(response => setCliente(response.data))
+            .catch(error => console.error("Houve um erro ao carregar o cliente: ", error))
+        }
+    }, [id])
 
     useEffect(() => {
         const cep = cliente.endereco.cep.replace(/\D/g, '')
@@ -93,6 +104,15 @@ const ClienteForm = () => {
                 required
                 value={cliente.nome}
                 onChange={e => setCliente({ ...cliente, nome: e.target.value })}
+            />
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+            <Form.Label>CPF</Form.Label>
+            <Form.Control
+                required
+                value={cliente.cpf}
+                onChange={e => setCliente({ ...cliente, cpf: e.target.value })}
             />
         </Form.Group>
 
@@ -227,7 +247,7 @@ const ClienteForm = () => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                Cliente adicionado com sucesso!
+                { id ? 'Cliente editado com sucesso' : 'Cliente adicionado com sucesso' }
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="success" onClick={() => navigate( '/listar-clientes')}>Fechar</Button>
