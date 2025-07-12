@@ -36,5 +36,22 @@
     }
   ],
   "produtos": [],
-  "clientes": []
+  "clientes": [
+    {
+      "id": "14e8",
+      "nome": "Cliente Teste 1",
+      "email": "kelson.victr@gmail.com",
+      "telefone": "4443343434",
+      "endereco": {
+        "cep": "58037-328",
+        "logradouro": "Rua Josefa de Miranda Freire",
+        "numero": "105",
+        "complemento": "CASA",
+        "bairro": "Jardim Oceania",
+        "cidade": "João Pessoa",
+        "estado": "Paraíba",
+        "pais": "Brasil"
+      }
+    }
+  ]
 }

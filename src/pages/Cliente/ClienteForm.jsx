@@ -85,7 +85,7 @@ const ClienteForm = () => {
         </OverlayTrigger>
         </h2>
 
-        <Form>
+        <Form onSubmit={handleSubmit}>
 
         <Form.Group className="mb-3">
             <Form.Label>Nome</Form.Label>
@@ -230,7 +230,7 @@ const ClienteForm = () => {
                 Cliente adicionado com sucesso!
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="success" onClick={() => navigate( '/listar-fornecedores')}>Fechar</Button>
+                <Button variant="success" onClick={() => navigate( '/listar-clientes')}>Fechar</Button>
             </Modal.Footer>
             
 
